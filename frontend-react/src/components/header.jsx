@@ -1,15 +1,15 @@
 import React from 'react'
 import  Button from './button';
-
+import { Link, useNavigate } from 'react-router-dom'
 
 const Header = () => {
   return (
     <nav className='navbar container pt-3 pb-3 align-items-start'>
-        <a className="navbar-brand text-light" href="">Stock Prediction portal</a>
+        <Link className='navbar-brand text-light' to="/">Stock Prediction Portal</Link>
         <div>
-            <Button text="Login" className="btn btn-outline-info"/>
+            <Button text="Login" url="/login" className="btn btn-outline-info"/>
             &nbsp;
-            <Button text="Register" className="btn btn-info"/>
+            <Button text="Register"  url="/register"  className="btn btn-info"/>
             
         </div>
     </nav>
