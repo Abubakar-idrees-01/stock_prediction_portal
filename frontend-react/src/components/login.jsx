@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, {useContext, useState } from "react";
 import axios from "axios";
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from "../AuthProvider";
+
 const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+
   const navigate = useNavigate()
-  
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     setError("");
@@ -22,7 +27,7 @@ const Login = () => {
       // Save tokens
       localStorage.setItem("accessToken", data.access);
       localStorage.setItem("refreshToken", data.refresh);
-
+      setIsLoggedIn(true)
       setSuccess(true);
       console.log("Tokens saved:", data);
       navigate("/")

@@ -1,19 +1,52 @@
-import React from 'react'
-import  Button from './button';
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useContext } from "react";   // <-- added useContext
+import Button from "./button";
+import { Link , useNavigate } from "react-router-dom";     // <-- removed useNavigate (not used)
+import { AuthContext } from "../AuthProvider";
 
 const Header = () => {
-  return (
-    <nav className='navbar container pt-3 pb-3 align-items-start'>
-        <Link className='navbar-brand text-light' to="/">Stock Prediction Portal</Link>
-        <div>
-            <Button text="Login" url="/login" className="btn btn-outline-info"/>
-            &nbsp;
-            <Button text="Register"  url="/register"  className="btn btn-info"/>
-            
-        </div>
-    </nav>
-  )
-}
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
+  const usenavigate=useNavigate();
 
-export default Header
+  return (
+    <>
+      <nav className="navbar container pt-3 pb-3 align-items-start">
+        <Link className="navbar-brand text-light" to="/">
+          Stock Prediction Portal
+        </Link>
+        <div>
+          {isLoggedIn ? (
+            <>
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  localStorage.removeItem("accessToken");
+                  localStorage.removeItem("refreshToken");
+                  setIsLoggedIn(false);
+                  usenavigate("/login")
+                }}
+              >
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Button
+                text="Login"
+                url="/login"
+                className="btn btn-outline-info"
+              />
+              &nbsp;
+              <Button
+                text="Register"
+                url="/register"
+                className="btn btn-info"
+              />
+            </>
+          )}
+        </div>
+      </nav>
+    </>
+  );
+};
+
+export default Header;
