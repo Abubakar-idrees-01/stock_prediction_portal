@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom'
+import { use } from 'react'
+
 
 const Register = () => {
   const [username, setUsername] = useState('')
@@ -10,6 +13,7 @@ const Register = () => {
   const [errors, setErrors] = useState({})
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
 
   const handleRegistration = async (e) => {
     e.preventDefault()
@@ -23,11 +27,14 @@ const Register = () => {
       console.log('Registration successful')
       setErrors({})
       setSuccess(true)
+      
     } catch (error) {
       setErrors(error.response?.data || { general: 'Something went wrong' })
       console.error('Registration error: ', error.response?.data)
     } finally {
       setLoading(false)
+      console.log("worked")
+      navigate("/")
     }
   }
 
@@ -36,7 +43,7 @@ const Register = () => {
       <div className="container vh-100 d-flex align-items-center justify-content-center bg-dark">
         <div className="row justify-content-center w-100 animate__animated animate__fadeInUp">
           <div className="col-md-6 p-5 rounded shadow-lg bg-light border-start border-4 border-info">
-            <h3 className="text-center mb-4 fw-bold text-dark">Create an Account</h3>
+            <h3 className="text-center mb-4 fw-bold text-info">Create an Account</h3>
             <form onSubmit={handleRegistration}>
               <div className="mb-3">
                 <input
