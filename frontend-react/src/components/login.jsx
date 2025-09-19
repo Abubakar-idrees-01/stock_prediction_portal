@@ -42,7 +42,7 @@ const Login = () => {
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-dark">
       <div className="col-md-4 bg-light p-5 rounded-4 shadow-lg">
-        <h2 className="text-center mb-4 fw-bold" style={{ fontFamily: "Segoe UI, sans-serif" }}>
+        <h2 className="text-info text-center mb-4 fw-bold" style={{ fontFamily: "Segoe UI, sans-serif" }}>
           🔐 Login
         </h2>
 
@@ -50,7 +50,7 @@ const Login = () => {
 
         <form onSubmit={handleLogin}>
           <div className="mb-3">
-            <label className="form-label fw-semibold">Username</label>
+            <label className="text-dark form-label fw-semibold">Username</label>
             <input
               type="text"
               className="form-control form-control-lg"
@@ -62,7 +62,7 @@ const Login = () => {
           </div>
 
           <div className="mb-4">
-            <label className="form-label fw-semibold">Password</label>
+            <label className="text-dark form-label fw-semibold">Password</label>
             <input
               type="password"
               className="form-control form-control-lg"
