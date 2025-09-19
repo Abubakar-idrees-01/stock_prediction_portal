@@ -14,7 +14,8 @@ const Main = () => {
         </p>
 
         {isLoggedIn ? (
-          <h3 className='text-success'>Welcome, {username} 🎉</h3>
+          <Button text={`${username}'s Dashboard`} url="/dashboard" className="btn btn-outline-info" />
+          
         ) : (
           <Button text="Login" url="/login" className="btn btn-outline-info" />
         )}
