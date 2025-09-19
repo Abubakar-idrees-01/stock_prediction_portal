@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSpinner } from '@fortawesome/free-solid-svg-icons'
-import { useNavigate } from 'react-router-dom'
-import { use } from 'react'
+
 
 
 const Register = () => {
@@ -13,7 +12,7 @@ const Register = () => {
   const [errors, setErrors] = useState({})
   const [success, setSuccess] = useState(false)
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate()
+
 
   const handleRegistration = async (e) => {
     e.preventDefault()
@@ -34,7 +33,7 @@ const Register = () => {
     } finally {
       setLoading(false)
       console.log("worked")
-      navigate("/")
+      
     }
   }
 
