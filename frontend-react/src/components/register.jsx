@@ -94,12 +94,15 @@ const Register = () => {
               ) : (
                 <button
                   type="submit"
-                  className="btn btn-info w-100 py-2 fw-bold rounded-3 shadow-sm animate__animated animate__fadeIn"
+                  className="btn btn-info w-100 py-2 fw-bold text-white rounded-3 shadow-sm animate__animated animate__fadeIn"
                 >
                   Register
                 </button>
               )}
             </form>
+            <p className="text-center text-muted mt-4" style={{ fontSize: "0.9rem" }}>
+          Already have an account? <a href="/login" className="text-info fw-semibold">Login</a>
+        </p>
           </div>
         </div>
       </div>
