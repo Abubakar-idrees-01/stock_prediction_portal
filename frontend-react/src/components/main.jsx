@@ -10,7 +10,7 @@ const Main = () => {
       <div className='p-5 text-center bg-light-dark rounded'>
         <h1 className='text-light'>Stock Prediction Portal</h1>
         <p className='text-light lead'>
-          Welcome to our Stock Prediction portal, your intelligent companion in the world of stock market forecasting. Our platform combines real-time market data, advanced machine learning models, and intuitive visualization tools to help traders, investors, and analysts stay ahead of the curve.
+          Hello Sir! Welcome to our Stock Prediction portal, your intelligent companion in the world of stock market forecasting. Our platform combines real-time market data, advanced machine learning models, and intuitive visualization tools to help traders, investors, and analysts stay ahead of the curve.
         </p>
 
         {isLoggedIn ? (
