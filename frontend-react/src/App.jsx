@@ -3,7 +3,7 @@ import './assets/css/style.css'
 import Header from "./components/header"
 import Main from "./components/main"
 import Footer from "./components/footer"
-import Register from './components/Register'
+import Register from './components/register'
 import Login from './components/login'
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import AuthProvider from './AuthProvider'
